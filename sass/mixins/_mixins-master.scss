@@ -1,0 +1,103 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Vertical spacing with margin-bottom
+@mixin vertical-spacing($multiplier: 1) {
+	margin-bottom: ($multiplier * 50) * 1px;
+}
+
+// Vertical spacing with margin-top
+@mixin vertical-spacing-top($multiplier: 1) {
+	margin-top: ($multiplier * 50) * 1px;
+}
+
+// Vertical padding
+@mixin vertical-padding($multiplier: 1) {
+	padding-bottom: ($multiplier * 50) * 1px;
+	padding-top: ($multiplier * 50) * 1px;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Center Absolute
+@mixin center-absolute {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+// Center Absolute (Vertical Only)
+@mixin center-absolute-y {
+	display: block;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
+
+// Invisible
+@mixin invisible {
+	opacity: 0;
+	visibility: hidden;
+}
+
+// Visible
+@mixin visible {
+	opacity: 1;
+	visibility: visible;
+}
+
+// Hidden
+@mixin hidden {
+	opacity: 0;
+	display: none;
+}
+
+// Ellipsis
+@mixin ellipsis {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+// Account for the Wordpress Admin Bar 
+@mixin admin-sticky-fix( $offset: 0 ) {
+  $narrow-offset: 46px;
+  $wide-offset: 32px;
+  @if $offset != 0 and type-of($offset) == 'number' {
+    $narrow-offset: $narrow-offset + $offset;
+    $wide-offset: $wide-offset + $offset;
+  }
+  .admin-bar & {
+    top: $narrow-offset;
+    @media screen and (min-width: 783px) {
+      top: $wide-offset;
+    }
+  }
+}

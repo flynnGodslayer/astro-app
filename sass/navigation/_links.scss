@@ -1,0 +1,19 @@
+a {
+	color: $astro__green;
+
+	&:visited {
+		color: $astro__greendark;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: $astro__greenlight;
+	}
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
