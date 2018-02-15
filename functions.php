@@ -9,7 +9,7 @@
 
 function add_post_types_to_loop($query) {
 if ($query->is_main_query() && $query->is_front_page()) {
-$query->set('post_type', array('post', 'stakeholder'));
+$query->set('post_type', array( 'stakeholder'));
 }
 }
 add_action('pre_get_posts', 'add_post_types_to_loop');
