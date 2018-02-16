@@ -25,6 +25,11 @@ body {
 	width: auto;
 	margin: 0 $width__button;
 	padding: 80px 0 100px;
+
+	@media #{$resolution__netbook} { 
+		margin: 0 $width__button * 0.3;
+		padding: 50px 0 70px;
+	}
 }
 
 hr {

@@ -16,9 +16,46 @@
 	margin: 1.5em 0 0;
 }
 
+.entry-content {	
+	@media #{$resolution__netbook} { 
+		overflow-x: scroll;
+	}
+}
+
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
 }
 
+.text-results {
+	@media #{$resolution__phone} { 
+		margin-right: 0 !important;
+		margin-bottom: 50px;
+	}
+}
+
+.data-container {
+	@media #{$resolution__netbook} { 
+		th,
+		td {
+			&:nth-of-type(3) {
+				display: none;
+			}
+		}
+	}
+	
+	@media #{$resolution__phone} { 
+		th,
+		td {
+			&:nth-of-type(2),
+			&:nth-of-type(3),
+			&:nth-of-type(4),
+			&:nth-of-type(5),
+			&:nth-of-type(6),
+			&:nth-of-type(7) {
+				display: none;
+			}
+		}
+	}
+}
 

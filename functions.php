@@ -171,37 +171,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
-/**
- * Include the TGM_Plugin_Activation class.
- */
-require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
-
-add_action( 'tgmpa_register', 'astro_crush_register_required_plugins' );
-function astro_crush_register_required_plugins() {
-	$plugins = array(
-		array(
-			'name'               => 'Astro Shortcodes',
-			'slug'               => 'astro-shortcodes',
-			'source'             => get_template_directory() . '/inc/plugins/astro-shortcodes.zip', 
-			'required'           => true, 
-			'version'            => '2.6', 
-			'force_activation'   => true, 
-			'force_deactivation' => false, 
-		)
-	);
-
-	$config = array(
-		'id'           => 'tgmpa',                 
-		'default_path' => '',                      
-		'menu'         => 'tgmpa-install-plugins', 
-		'parent_slug'  => 'themes.php',            
-		'capability'   => 'edit_theme_options',   
-		'has_notices'  => true,                    
-		'dismissable'  => false,                   
-		'is_automatic' => true,                 
-	);
-
-	tgmpa( $plugins, $config );
-}
-

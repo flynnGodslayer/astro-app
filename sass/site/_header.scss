@@ -8,6 +8,7 @@
 	background-color: $astro__green;
 	@include material-shadow( 1, 'none' );
 	z-index: 1;
+	@include admin-sticky-fix();
 }
 
 .site-branding {
@@ -18,6 +19,7 @@
 	height: $height__site-header;
 	white-space: nowrap;
 	z-index: 2;
+	@include admin-sticky-fix();
 
 	.site-title,
 	.site-description {
@@ -31,6 +33,12 @@
 		&:before {
 			content: '–';
 			margin: 0 0.5em;
+		}
+	}
+
+	@media #{$resolution__phone} { 
+		.site-description {
+			display: none;
 		}
 	}
 }
