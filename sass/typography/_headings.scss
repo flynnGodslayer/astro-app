@@ -1,3 +1,16 @@
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .site-title, .site-description {
 	clear: both;
+	margin: 0;
+	font-weight: $normal;
+}
+
+h1 {
+	@include font-size(3.1);
+	line-height: 1.5;
+}
+
+.site-title,
+.site-description {
+	@include font-size(1.1);
+	line-height: $height__site-header;
 }

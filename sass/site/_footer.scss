@@ -1,0 +1,9 @@
+.site-footer {
+	position: relative;
+	clear: left;
+	height: $height__site-footer;
+	width: 100%;
+	padding: 24px $width__button;
+	background-color: $astro__green;
+	color: transparentize( $elijah__snow, 0.5 );
+}

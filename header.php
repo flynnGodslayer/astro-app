@@ -41,16 +41,24 @@
 			<?php
 			endif; ?>
 		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'astro-app' ); ?></button>
-			<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-			?>
-		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
+
+	<nav id="site-navigation" class="main-navigation">
+		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+			<div class="menu-icon"></div>
+		</button>	
+		<div class="drawer">		
+		<?php
+			if ( has_nav_menu( 'menu-1' ) ) {
+				wp_nav_menu( array( 
+					'theme_location' => 'menu-1', 
+					'menu_id' 		 => 'primary-menu', 
+					'container' 	 => 'false'
+				) );
+			}
+		?>
+		</div>
+		<div class="overlay"></div>
+	</nav><!-- #site-navigation -->
 
 	<div id="content" class="site-content">

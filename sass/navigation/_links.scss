@@ -1,8 +1,11 @@
 a {
+	text-decoration: none;
+	font-weight: $normal;
 	color: $astro__green;
+	transition: $ease;
 
 	&:visited {
-		color: $astro__greendark;
+		color: $astro__green;
 	}
 	&:hover,
 	&:focus,
@@ -15,5 +18,14 @@ a {
 	&:hover,
 	&:active {
 		outline: 0;
+	}
+
+	.site-header &,
+	.site-footer & {
+		color: $elijah__snow;
+
+		&:visited {
+			color: $elijah__snow;
+		}
 	}
 }

@@ -1,37 +1,46 @@
 .main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
+	.drawer {
+		display: block;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: -20vw;
+		width: 20vw;
+		background-color: $elijah__snow;
+		border-right: 1px solid transparentize( $starless, 0.8 );
+		transition: $ease;
+		z-index: 4;
+	}
+
+	.overlay {
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: transparentize( $starless, 0.5 );
+		visibility: hidden;
+		transition: $ease;
+		z-index: 3;
+	}
 
 	ul {
-		display: none;
+		display: block;
 		list-style: none;
+		width: 100%;
 		margin: 0;
 		padding-left: 0;
 
 		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
-
-			ul {
-				left: -999em;
-				top: 0;
-			}
-
+			
 			li {
 				&:hover > ul,
 				&.focus > ul {
-					left: 100%;
 				}
 			}
 
 			a {
-				width: 200px;
 			}
 
 			:hover > a,
@@ -49,10 +58,14 @@
 		}
 	}
 
-	li {
-		float: left;
-		position: relative;
+	> ul {
+		padding: 12px 0 40px;
+	}
 
+	li {
+		position: relative;
+		width: 100%;
+		padding: 15px 0 15px 22px;
 		&:hover > a,
 		&.focus > a {
 		}
@@ -61,6 +74,9 @@
 	a {
 		display: block;
 		text-decoration: none;
+		@include font-size(0.8);
+		font-weight: $bold;
+		color: $ashes;
 	}
 
 	.current_page_item > a,
@@ -68,20 +84,54 @@
 	.current_page_ancestor > a,
 	.current-menu-ancestor > a {
 	}
+
+	&.toggled {
+		.drawer {
+			left: 0;
+		}
+
+		.overlay {
+			visibility: visible;
+		}
+	}
 }
 
 /* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
+.menu-toggle {
+	position: fixed;
+	top: 12px;
+	left: 12px;
+	height: $width__button * 0.6;
+	width: $width__button * 0.6;
+	background-color: transparent;
+	z-index: 2;
 
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: block;
+	.menu-icon {
+		@include center-absolute-y();		
+		right: 20%;
+		height: 3px;
+		width: 60%;
+		background-color: $elijah__snow;
+	    transition: $ease;
+
+	    &:before,
+	    &:after {
+	    	content: '';
+			display: block;
+			position: absolute;
+			height: 100%;
+			width: 100%;
+	    	transition: $ease;
+	    	background-color: $elijah__snow;
+	    }
+
+	    &:before {
+			top: -8px;
+		}
+
+		&:after {
+			bottom: -8px;
+		}		
 	}
 }
 

@@ -11,7 +11,7 @@ License URI: LICENSE
 
 == Description ==
 
-Starter theme for Astro Web clients.
+A theme for building progressive web apps, usign Google's Material Design.
 
 == Installation ==
 
@@ -27,7 +27,7 @@ Astro App includes support for Infinite Scroll in Jetpack, and it requires de As
 
 == Changelog ==
 
-= 1.0 - January 20, 2018 =
+= 1.0 - February 14, 2018 =
 * Initial release
 
 == Credits ==
