@@ -1,4 +1,15 @@
 table {
 	margin: 0 0 1.5em;
 	width: 100%;
+	@include font-size(0.8);
+}
+
+th {
+	background-color: $astro__yellow;
+}
+
+th,
+td {
+	padding: 12px 12px 12px 24px;
+    border: 1px solid $astro__yellowdark;
 }

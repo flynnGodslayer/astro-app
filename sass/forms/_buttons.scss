@@ -3,7 +3,7 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	border: none;
-	border-radius: 3px;
+	border-radius: 0;
 	background: $astro__yellow;
 	color: rgba(0, 0, 0, .8);
 	@include font-size(0.75);

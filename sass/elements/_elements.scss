@@ -17,7 +17,14 @@ body {
 body {
 	height: 100%;
 	width: 100%;	
+	padding-top: $height__site-header;
 	background: $elijah__snow; /* Fallback for when there is no custom background color defined. */
+}
+
+.site-content {
+	width: 100%;
+	margin: 0 $width__button;
+	padding: 80px 0 100px;
 }
 
 hr {

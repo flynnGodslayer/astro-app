@@ -1,0 +1,38 @@
+.site-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: $height__site-header;
+	padding-left: 16px;
+	background-color: $astro__green;
+	@include material-shadow( 1, 'none' );
+	z-index: 1;
+}
+
+.site-branding {
+	position: fixed;
+	top: 0;
+	left: $width__button;
+	right: $width__button;
+	height: $height__site-header;
+	white-space: nowrap;
+	z-index: 2;
+
+	.site-title,
+	.site-description {
+		float: left;
+		clear: none;
+	}
+
+	.site-description {
+		color: $elijah__snow;
+
+		&:before {
+			content: '–';
+			margin: 0 0.5em;
+		}
+	}
+}
+
+

@@ -5,7 +5,7 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, button, menu, links, i, len;
+	var container, button, menu, overlay, links, i, len;
 
 	container = document.getElementById( 'site-navigation' );
 	if ( ! container ) {
@@ -25,21 +25,23 @@
 		return;
 	}
 
+	overlay = container.getElementsByClassName( 'overlay' )[0];
+
 	menu.setAttribute( 'aria-expanded', 'false' );
 	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
 		menu.className += ' nav-menu';
 	}
 
 	button.onclick = function() {
-		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
-			container.className = container.className.replace( ' toggled', '' );
-			button.setAttribute( 'aria-expanded', 'false' );
-			menu.setAttribute( 'aria-expanded', 'false' );
-		} else {
-			container.className += ' toggled';
-			button.setAttribute( 'aria-expanded', 'true' );
-			menu.setAttribute( 'aria-expanded', 'true' );
-		}
+		container.className += ' toggled';
+		button.setAttribute( 'aria-expanded', 'true' );
+		menu.setAttribute( 'aria-expanded', 'true' );
+	};
+
+	overlay.onclick = function() {
+		container.className = container.className.replace( ' toggled', '' );
+		button.setAttribute( 'aria-expanded', 'false' );
+		menu.setAttribute( 'aria-expanded', 'false' );
 	};
 
 	/**
