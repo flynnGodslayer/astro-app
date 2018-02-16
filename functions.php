@@ -139,19 +139,6 @@ function astro_app_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'astro_app_scripts' );
 
-/**
- * Replace 'post' with 'stakeholder' post type in main query.
- *
- * @param WP_Query $query
- */
-function astro_app_stakeholders_in_loop($query) {
-	if ($query->is_main_query() && $query->is_front_page()) {
-		$query->set('post_type', array('stakeholder'));
-	}
-}
-add_action('pre_get_posts', 'astro_app_stakeholders_in_loop');
-
-
 // Change content output.
 function astro_app_regular_content($content) {
   return $content;
