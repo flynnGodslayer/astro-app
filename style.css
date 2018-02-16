@@ -318,7 +318,7 @@ body {
   /* Fallback for when there is no custom background color defined. */ }
 
 .site-content {
-  width: 100%;
+  width: auto;
   margin: 0 72px;
   padding: 80px 0 100px; }
 
