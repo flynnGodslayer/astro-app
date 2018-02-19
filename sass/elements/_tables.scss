@@ -2,6 +2,10 @@ table {
 	margin: 0 0 1.5em;
 	width: 100%;
 	@include font-size(0.8);
+
+	@media #{$resolution__netbook} { 
+		@include font-size(0.7);
+	}
 }
 
 th {
@@ -10,6 +14,26 @@ th {
 
 th,
 td {
-	padding: 12px 12px 12px 24px;
+	padding: 12px;
     border: 1px solid $astro__yellowdark;
+	
+	@media #{$resolution__netbook} { 
+		padding: 5px;
+	}
+}
+
+td {
+	text-align: center;
+
+	&:first-of-type {
+		text-align: left;
+	}
+
+	a {
+		margin-left: 1em;
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
 }

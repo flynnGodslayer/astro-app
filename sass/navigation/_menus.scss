@@ -32,8 +32,7 @@
 		margin: 0;
 		padding-left: 0;
 
-		ul {
-			
+		ul {			
 			li {
 				&:hover > ul,
 				&.focus > ul {
@@ -41,6 +40,8 @@
 			}
 
 			a {
+				padding: 10px 0 10px 32px;
+				font-weight: $normal;
 			}
 
 			:hover > a,
@@ -65,7 +66,6 @@
 	li {
 		position: relative;
 		width: 100%;
-		padding: 15px 0 15px 22px;
 		&:hover > a,
 		&.focus > a {
 		}
@@ -73,6 +73,7 @@
 
 	a {
 		display: block;
+		padding: 15px 0 15px 22px;
 		text-decoration: none;
 		@include font-size(0.8);
 		font-weight: $bold;
@@ -105,6 +106,7 @@
 	width: $width__button * 0.6;
 	background-color: transparent;
 	z-index: 2;
+	@include admin-sticky-fix();
 
 	.menu-icon {
 		@include center-absolute-y();		
@@ -153,5 +155,18 @@
 		float: right;
 		text-align: right;
 		width: 50%;
+	}
+}
+
+@media #{$resolution__phone} { 
+	.main-navigation {
+		.drawer {
+			display: block;
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: -75vw;
+			width: 75vw;  
+		}
 	}
 }
